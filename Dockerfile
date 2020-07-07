@@ -7,6 +7,7 @@ RUN cd /sources &&\
     cd openmpi-4.0.4 &&\
     mkdir build &&\
     cd build &&\
+    ../configure &&\
     make -j 4 all &&\
     make install &&\
     cd / &&\
@@ -18,7 +19,7 @@ RUN cd /sources &&\
     mkdir build &&\
     cd build &&\
     cmake -DVTK_Group_Imaging=OFF -DVTK_Group_MPI=ON -DVTK_Group_Qt=OFF -DVTK_Group_Rendering=OFF -DVTK_Group_StandAlone=ON -DVTK_Group_Tk=OFF -DVTK_Group_Views=OFF -DVTK_Group_Web=OFF -DVTK_RENDERING_BACKEND=None .. &&\
-    make &&\
+    make -j4 &&\
     make install &&\
     cd / &&\
     rm -fr /sources/VTK*
