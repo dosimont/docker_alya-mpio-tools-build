@@ -1,5 +1,5 @@
 FROM fedora:latest
-RUN dnf -y install cmake gcc gcc-c++ openmpi wget
+RUN dnf -y install cmake gcc gcc-c++ make openmpi wget
 RUN mkdir -p /sources &&\
     cd /sources &&\
     wget https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz &&\
