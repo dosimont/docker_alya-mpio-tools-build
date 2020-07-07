@@ -11,4 +11,4 @@ RUN mkdir -p /sources &&\
     make &&\
     make install &&\
     cd / &&\
-    rm -fr sources/VTK-8.2.0
+    rm -fr /sources/VTK-8.2.0
