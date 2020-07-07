@@ -1,7 +1,17 @@
 FROM fedora:latest
-RUN dnf -y install cmake gcc gcc-c++ make openmpi wget
-RUN mkdir -p /sources &&\
-    cd /sources &&\
+RUN dnf -y install cmake gcc gcc-c++ make wget
+RUN mkdir -p /sources
+RUN cd /sources &&\
+    wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.4.tar.gz &&\
+    tar -xf openmpi-4.0.4.tar.gz &&\
+    cd openmpi-4.0.4 &&\
+    mkdir build &&\
+    cd build &&\
+    make -j 4 all &&\
+    make install
+    cd / &&\
+    rm -fr /sources/openmpi*
+RUN cd /sources &&\
     wget https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz &&\
     tar -xf VTK-8.2.0.tar.gz &&\
     cd VTK-8.2.0 &&\
@@ -11,4 +21,4 @@ RUN mkdir -p /sources &&\
     make &&\
     make install &&\
     cd / &&\
-    rm -fr /sources/VTK-8.2.0
+    rm -fr /sources/VTK*
