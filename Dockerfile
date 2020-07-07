@@ -8,7 +8,7 @@ RUN cd /sources &&\
     mkdir build &&\
     cd build &&\
     make -j 4 all &&\
-    make install
+    make install &&\
     cd / &&\
     rm -fr /sources/openmpi*
 RUN cd /sources &&\
