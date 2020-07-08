@@ -1,5 +1,5 @@
-FROM fedora:latest
-RUN dnf -y install cmake gcc gcc-c++ git make perl wget
+FROM fedora:31
+RUN dnf -y install cmake gcc-9.3.1-2.fc31.x86_64 gcc-c++-9.3.1-2.fc31.x86_64 git make perl wget
 RUN mkdir -p /sources
 RUN cd /sources &&\
     wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.4.tar.gz &&\
